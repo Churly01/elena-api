@@ -1,0 +1,23 @@
+const mongoose = require('mongoose');
+
+
+const messageSchema = new mongoose.Schema({
+
+    creationDate: {
+	type: Date,
+	required: true,
+	default: Date.now
+    },
+    messageText:{
+	type: String,
+	required: true
+    },
+    messageTitle:{
+	type: Date,
+	required: true,
+	default: 'Mensajito Bonito'
+    }
+    
+})
+
+
