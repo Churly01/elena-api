@@ -13,7 +13,7 @@ router.get('/', async (req, res) => {
     }
     catch(err)
     {
-	res.status(500).json({message:err.message})
+	res.status(500).json({message:err.message});
     }
 
 });
@@ -68,7 +68,7 @@ router.delete('/:id', getMessage, async (req,res) => {
 });
 
 async function getMessage(req, res, next){
-    var message;
+    let  message;
     try{
 
 	message = await Message.findById(req.params.id);

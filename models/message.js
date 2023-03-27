@@ -16,9 +16,12 @@ const messageSchema = new mongoose.Schema({
 	type: String,
 	required: true,
 	default: 'Mensajito Bonito'
-    }
-    
-})
+    },
+    creator: new mongoose.Schema({
+        name: String,
+        firebaseId: String
+    })
+});
 
 module.exports = mongoose.model('Message', messageSchema);
 
