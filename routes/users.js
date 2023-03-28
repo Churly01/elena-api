@@ -31,6 +31,8 @@ router.patch('/:id', getUser, async(req, res) => {
 
 
 
-const getUser = async (req, res, next) => {
+async function getUser(req, res, next) {
    
 };
+
+module.exports = router;
