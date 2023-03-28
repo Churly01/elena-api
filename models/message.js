@@ -16,9 +16,8 @@ const messageSchema = new mongoose.Schema({
 	required: true,
 	default: 'Mensajito Bonito'
     },
-    creator: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "User",
+    creator_firebase_id: {
+        type: String,
         required: true,
     },
 });

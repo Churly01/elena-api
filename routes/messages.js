@@ -4,6 +4,7 @@ const Message = require('../models/message');
 
 // Getting all messages
 router.get('/', async (req, res) => {
+    console.log('Request for all messages...'); 
     try{
 	const messages = await Message.find();
 	res.json(messages);
@@ -12,7 +13,7 @@ router.get('/', async (req, res) => {
     {
 	res.status(500).json({message:err.message});
     }
-
+    console.log('Request for all messages completed! Yippee'); 
 });
 
 // Getting One
@@ -20,14 +21,14 @@ router.get('/:id',getMessage, (req, res) => {
     res.json(res.message);
 });
 
-
 // Creating One
 router.post('/', async (req, res ) => {
     const message = new Message({
 	messageText: req.body.messageText,
 	messageTitle: req.body.messageTitle,
+        creator_firebase_id: req.body.creator_firebase_id,
     });
-    
+    console.log(message);
     try{
 	const newMessage = await message.save();
 	res.status(201).json(newMessage);
@@ -67,7 +68,7 @@ router.delete('/:id', getMessage, async (req,res) => {
 async function getMessage(req, res, next){
     let  message;
     try{
-
+        
 	message = await Message.findById(req.params.id);
 	if(message ==  null) {
 	    return res.status(404).json({message:'Cannot Find Message'});

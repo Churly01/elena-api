@@ -9,7 +9,10 @@ const userSchema = new mongoose.Schema({
     first_name: String,
     last_name: String,
     email: String,
-    firebase_id: String,
+    firebase_id: {
+        type: String,
+        required: true,
+    },
     avatar: {
         type: Buffer,
     }
