@@ -1,6 +1,5 @@
 const mongoose = require('mongoose');
 
-
 const messageSchema = new mongoose.Schema({
 
     creationDate: {
@@ -17,10 +16,11 @@ const messageSchema = new mongoose.Schema({
 	required: true,
 	default: 'Mensajito Bonito'
     },
-    creator: new mongoose.Schema({
-        name: String,
-        firebaseId: String
-    })
+    creator: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "User",
+        required: true,
+    },
 });
 
 module.exports = mongoose.model('Message', messageSchema);

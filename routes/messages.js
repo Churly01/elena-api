@@ -1,9 +1,6 @@
 const express = require('express');
-
 const router= express.Router();
 const Message = require('../models/message');
-
-
 
 // Getting all messages
 router.get('/', async (req, res) => {
@@ -77,7 +74,7 @@ async function getMessage(req, res, next){
 	}
 	
     } catch(err){
-	return res.status(500).json({message: err.message})
+	return res.status(500).json({message: err.message});
     }
 
     res.message = message;
