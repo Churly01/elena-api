@@ -24,13 +24,13 @@ router.post('/', async (req, res) => {
 
 // Updating a user
 router.patch('/firebase/:id', getUserByFirebaseId, async(req, res) => {
-    if(req.body.last_name !== null) {
+    if(req.body.last_name != null) {
         res.user.last_name=req.body.last_name;
     }
-    if(req.body.first_name !== null) {
+    if(req.body.first_name != null) {
         res.user.first_name=req.body.first_name;
     }
-    if(req.body.avatar !== null) {
+    if(req.body.avatar != null) {
         res.user.avatar=req.body.avatar;     
     }
     try{
