@@ -43,7 +43,6 @@ router.patch('/:id', getMessage, async (req, res) => {
 	res.message.messageText = req.body.messageText;
     if(req.body.messageTitle !=null)
 	res.message.messageTitle = req.body.messageTitle;
-
     try{
 	const updatedMessage = await res.message.save();
 	res.status(200).json(updatedMessage);
