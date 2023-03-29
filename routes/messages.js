@@ -46,7 +46,7 @@ router.patch('/:id', getMessage, async (req, res) => {
 
     try{
 	const updatedMessage = await res.message.save();
-	res.json(updatedMessage);
+	res.status(200).json(updatedMessage);
     }catch(err){
 	res.status(400).json({message:err.message});
     }
